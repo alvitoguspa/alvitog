@@ -24,7 +24,7 @@ int kipas = 0, lampu = 0, pompa = 0, termometer = 0;
 void setup(){
   Serial.begin(115200);
 
-  pinMode(Relay1, OUTPUT);
+  pinMode(Relay1, OUTPUT);// menjelaskan relay sebagai output
   pinMode(Relay2, OUTPUT);
   pinMode(Relay3, OUTPUT);
   pinMode(Relay4, OUTPUT);
@@ -37,49 +37,9 @@ void setup(){
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH); 
 
   delay(10);
-
-//   Serial.println("Connecting to ");
-//       Serial.println(ssid); 
-// 
-//       WiFi.begin(ssid, pass); 
-//       while (WiFi.status() != WL_CONNECTED) 
-//          {
-//            delay(500);
-//            Serial.print(".");
-//          }
-//          Serial.println("");
-//          Serial.println("Wifi connected");
-          
-//  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
-  
-//  Serial.print("Connecting to ");
-//  while (WiFi.status() != WL_CONNECTED) {
-//        Serial.print(".");
-//        delay(500);
-//        }
-//  Serial.println();
-//  Serial.println("WiFi connected");
-//  Serial.println("IP address: "); 
-//  Serial.println(WiFi.localIP());
-  
-  
-//  Firebase.stream("/kipas"); // #4
-//  Firebase.stream("/lampu"); // #4
-//  Firebase.stream("/pompa"); // #4
-//  Firebase.stream("/termometer"); // #4
 }
 
 void loop() {
-// if (Firebase.failed())
-//    {
-//    Serial.print("streaming error");
-//    Serial.print(Firebase.error());
-//    }
-
-//kipas = Firebase.getInt("kipas");
-//lampu = Firebase.getInt("lampu");
-//pompa = Firebase.getInt("pompa");
-//termometer = Firebase.getInt("termometer");
 
 //  KIPAS
   kipas = Firebase.getInt("kipas");
@@ -123,90 +83,13 @@ void loop() {
   }
 
   delay(10);
-//  if(Firebase.getString("kipas").toInt() == 1)
-//  {
-//    Serial.print("Relay ON");
-//    digitalWrite(Relay3, HIGH);  
-//  }
-//  else if(Firebase.getString("kipas").toInt() == 0)
-//  {
-//    Serial.print("\n Relay OFF");
-//    digitalWrite(Relay3, LOW);  
-//  }
 
-////  LAMPU
-//  if(Firebase.getString("lampu").toInt() == 1)
-//  {
-//    Serial.print("Relay ON");
-//    digitalWrite(Relay1, HIGH);  
-//  }
-//  else if(Firebase.getString("lampu").toInt() == 0)
-//  {
-//    Serial.print("\n Relay OFF");
-//    digitalWrite(Relay1, LOW);  
-//  }
-//
-////  POMPA
-//  if(Firebase.getString("pompa").toInt() == 1)
-//  {
-//    Serial.print("Relay ON");
-//    digitalWrite(Relay4, HIGH);  
-//  }
-//  else if(Firebase.getString("pompa").toInt() == 0)
-//  {
-//    Serial.print("\n Relay OFF");
-//    digitalWrite(Relay4, LOW);  
-//  }
-//
-////  TERMOMETER
-//  if(Firebase.getString("termometer").toInt() == 1)
-//  {
-//    Serial.print("Relay ON");
-//    digitalWrite(Relay2, HIGH);  
-//  }
-//  else if(Firebase.getString("termometer").toInt() == 0)
-//  {
-//    Serial.print("\n Relay OFF");
-//    digitalWrite(Relay2, LOW);  
-//  }
   
   if(WiFi.status() != WL_CONNECTED)
   {
     wifiConnect();
   }
   delay(10);
-//  
-//  
-//
-//    //LAMPU
-//    if(lampu > 0){
-//        Serial.print("Relay ON");
-//        digitalWrite(Relay1, HIGH);
-//    }
-//    else{
-//        Serial.print("\n Relay OFF");
-//        digitalWrite(Relay1, LOW);  
-//    }
-//
-//    //POMPA
-//    if(pompa > 0){
-//        Serial.print("Relay ON");
-//        digitalWrite(Relay4, HIGH);
-//    }
-//    else{
-//        Serial.print("\n Relay OFF");
-//        digitalWrite(Relay4, LOW);  
-//    }
-//
-//    //TERMOMETER
-//    if(termometer > 0){
-//        Serial.print("Relay ON");
-//        digitalWrite(Relay2, HIGH);
-//    }
-//    else {
-//        Serial.print("\n Relay OFF");
-//        digitalWrite(Relay2, LOW);  
-//    }
 }
 
 void wifiConnect()
